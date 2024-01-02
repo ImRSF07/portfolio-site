@@ -1,0 +1,2 @@
+Figma: https://www.figma.com/file/6H9pi20911AFDlxoZMhhKk/Portfolio-for-Developers-Concept-V.2-(Community)?type=design&node-id=0-1&mode=design&t=hF3jmjkqSOcLoAhT-0
+Example site using the same figma design: https://wiscaksono.com/
