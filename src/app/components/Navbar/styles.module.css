@@ -1,0 +1,40 @@
+.navbar {
+    height: 3rem;
+    display: flex;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-link__wrapper {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    border-right: 1px solid #011627;
+    z-index: 1;
+
+    &.large {
+        width: 150px;
+    }
+
+}
+
+.nav-link__wrapper:hover {
+    border-bottom: 1px solid #fff;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+}

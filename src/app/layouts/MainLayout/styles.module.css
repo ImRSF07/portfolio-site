@@ -1,0 +1,5 @@
+.layout {
+    width: calc(95vw - 20px);
+    height: calc(94vh - 20px);
+    border: 1px solid #011627;
+}
