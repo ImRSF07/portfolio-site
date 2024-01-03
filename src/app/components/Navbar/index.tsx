@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className={styles['navbar']}>
       <ul className={styles['nav-links']}>
         <li className={`${styles['nav-link__wrapper']} ${styles['large']} `}>
-          <a className={styles['nav-link']} href='#'>roswaldo-flores</a>
+          <a className={styles['nav-link']} href='#'>&copy; Roswaldo Flores</a>
         </li>
         <li className={styles['nav-link__wrapper']}>
           <a className={styles['nav-link']} href='#'>_about-me</a>

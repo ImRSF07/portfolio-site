@@ -7,14 +7,14 @@ import styles from './styles.module.css';
 const Home = () => {
   return (
     <div className={styles['page']}>
-      <div className={styles['bg']}>
+      <div className={styles['bg-image__wrapper']}>
         <Image
           src='/background.jpg'
           alt='Background Image'
           quality={80}
           width={1920}
           height={1080}
-          className={styles['bg']}
+          className={styles['bg-image']}
         />
       </div>
       <div className={styles['content']}>

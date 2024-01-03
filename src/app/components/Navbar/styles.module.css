@@ -27,10 +27,9 @@
     &.large {
         width: 150px;
     }
-
 }
 
-.nav-link__wrapper:hover {
+.nav-link__wrapper:not(.large):hover {
     border-bottom: 1px solid #fff;
 }
 
