@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: center;
     border-right: 1px solid #011627;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 
 .footer-link:not(.no-hover) {

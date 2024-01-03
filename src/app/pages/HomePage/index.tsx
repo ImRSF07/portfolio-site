@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 import styles from './styles.module.css';
 
-import { Anton } from 'next/font/google'
+import { Anton } from 'next/font/google';
 
 const anton = Anton({
   weight: '400',
-  subsets: ['latin']
-})
+  subsets: ['latin'],
+});
 
 const Home = () => {
   return (
@@ -27,8 +27,12 @@ const Home = () => {
         <div className={styles['content__wrapper']}>
           <div className={styles['content']}>
             <div className={styles['personal-info']}>
-              <h4 className={`${styles['hello']} ${anton.className}`}>Hello All. I am</h4>
-              <h1 className={`${styles['name']} ${anton.className}`}>Roswaldo Flores</h1>
+              <h4 className={`${styles['hello']} ${anton.className}`}>
+                Hello All. I am
+              </h4>
+              <h1 className={`${styles['name']} ${anton.className}`}>
+                Roswaldo Flores
+              </h1>
               <h3 className={styles['work']}>&gt; Web Developer</h3>
             </div>
 

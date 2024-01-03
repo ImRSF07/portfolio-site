@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import { GrStatusGoodSmall } from "react-icons/gr";
+import { GrStatusGoodSmall } from 'react-icons/gr';
 
 import styles from './styles.module.css';
 
@@ -42,16 +42,16 @@ const Footer = () => {
       <ul className={`${styles['footer-links']} ${styles['reverse']}`}>
         <li
           className={styles['footer-link']}
-          onClick={() =>
-            visitLink('https://github.com/ImRSF07')
-          }
+          onClick={() => visitLink('https://github.com/ImRSF07')}
         >
           <FaGithub />
-          <p>&nbsp; ImRSF07</p>
+          <p>&nbsp;ImRSF07</p>
         </li>
         <li className={`${styles['footer-link']}`}>
           <p>Special thanks to: </p>&nbsp;
-          <a className={styles['url']} href='https://www.behance.net/darelova'>Yanka Darelova</a>
+          <a className={styles['url']} href='https://www.behance.net/darelova'>
+            Yanka Darelova
+          </a>
         </li>
       </ul>
     </footer>
