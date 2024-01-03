@@ -15,7 +15,7 @@
 }
 
 .nav-link__wrapper {
-    width: 100px;
+    width: 120px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -25,7 +25,7 @@
     z-index: 1;
 
     &.large {
-        width: 150px;
+        width: 200px;
     }
 }
 

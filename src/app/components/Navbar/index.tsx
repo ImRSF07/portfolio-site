@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Link from 'next/link';
+
 import styles from './styles.module.css';
 
 const Navbar = () => {
@@ -7,19 +9,29 @@ const Navbar = () => {
     <nav className={styles['navbar']}>
       <ul className={styles['nav-links']}>
         <li className={`${styles['nav-link__wrapper']} ${styles['large']} `}>
-          <a className={styles['nav-link']} href='#'>&copy; Roswaldo Flores</a>
+          <Link className={styles['nav-link']} href='/'>
+            &copy; Roswaldo Flores
+          </Link>
         </li>
         <li className={styles['nav-link__wrapper']}>
-          <a className={styles['nav-link']} href='#'>_about-me</a>
+          <Link className={styles['nav-link']} href='/about'>
+            _about-me
+          </Link>
         </li>
         <li className={styles['nav-link__wrapper']}>
-          <a className={styles['nav-link']} href='#'>_projects</a>
+          <Link className={styles['nav-link']} href='/projects'>
+            _projects
+          </Link>
         </li>
         <li className={styles['nav-link__wrapper']}>
-          <a className={styles['nav-link']} href='#'>_clients</a>
+          <Link className={styles['nav-link']} href='/clients'>
+            _clients
+          </Link>
         </li>
         <li className={styles['nav-link__wrapper']}>
-          <a className={styles['nav-link']} href='#'>_contact-me</a>
+          <Link className={styles['nav-link']} href='/contact'>
+            _contact-me
+          </Link>
         </li>
       </ul>
     </nav>
