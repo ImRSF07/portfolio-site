@@ -31,9 +31,17 @@
 
 .nav-link__wrapper:not(.large):hover {
     border-bottom: 1px solid #fff;
+
+    .nav-link {
+        color: #fff;
+    }
 }
 
 .nav-link {
     text-decoration: none;
-    color: #fff;
+    color: #a4c0da;
+
+    &.my-name {
+        color: #fff;
+    }
 }

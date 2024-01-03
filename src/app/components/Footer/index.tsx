@@ -49,9 +49,9 @@ const Footer = () => {
           <FaGithub />
           <p>&nbsp; ImRSF07</p>
         </li>
-        <li className={`${styles['footer-link']} ${styles['no-hover']}`}>
+        <li className={`${styles['footer-link']}`}>
           <p>Special thanks to: </p>&nbsp;
-          <a href='https://www.behance.net/darelova'>Yanka Darelova</a>
+          <a className={styles['url']} href='https://www.behance.net/darelova'>Yanka Darelova</a>
         </li>
       </ul>
     </footer>

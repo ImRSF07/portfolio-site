@@ -9,7 +9,10 @@ const Navbar = () => {
     <nav className={styles['navbar']}>
       <ul className={styles['nav-links']}>
         <li className={`${styles['nav-link__wrapper']} ${styles['large']} `}>
-          <Link className={styles['nav-link']} href='/'>
+          <Link
+            className={`${styles['nav-link']} ${styles['my-name']}`}
+            href='/'
+          >
             &copy; Roswaldo Flores
           </Link>
         </li>
