@@ -4,7 +4,7 @@ import './globals.css';
 
 import MainLayout from './layouts/MainLayout';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar'; 
 import Footer from './components/Footer';
 
 const firaCode = Fira_Code({
