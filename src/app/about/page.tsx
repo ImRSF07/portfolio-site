@@ -1,41 +1,23 @@
-'use client';
-
 import React from 'react';
 
-import styled from 'styled-components';
-
-import PageLayout from '../layouts/PageLayout';
-
 import H1 from '../components/Typography/H1';
+import ArticleLayout from '../layouts/ArticleLayout';
 
 export default function Home() {
   return (
-    <PageLayout overflow='auto'>
-      <StyledContainer>
+    <>
+      <ArticleLayout color='purple'>
         <H1 value='About Me' />
-      </StyledContainer>
-      <StyledContainer2>
+      </ArticleLayout>
+      <ArticleLayout color='green'>
         <H1 value='Skills' />
-      </StyledContainer2>
-    </PageLayout>
+      </ArticleLayout>
+      <ArticleLayout color='blue'>
+        <H1 value='Clients' />
+      </ArticleLayout>
+      <ArticleLayout color='black'>
+        <H1 value='Contact' />
+      </ArticleLayout>
+    </>
   );
 }
-
-const StyledContainer = styled.div`
-  background-color: red;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-const StyledContainer2 = styled.div`
-  background-color: blue;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
