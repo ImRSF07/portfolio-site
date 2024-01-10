@@ -7,7 +7,7 @@ import StyledLink from '@/app/components/StyledLink';
 
 const NotFound = () => {
   return (
-    <PageLayout>
+    <PageLayout classNames={['flex']}>
       <H1 size='3rem' value='Page Not Found :(' classNames={['--shadow']} />
       <H4
         value='Sorry, the page you are looking for does not exist.'

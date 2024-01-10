@@ -4,17 +4,34 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const PageLayout = ({ children }: { children: React.ReactNode }) => {
-  return <StyledPageLayout>{children}</StyledPageLayout>;
+type Styles = {
+  overflow?: string;
 };
 
-const StyledPageLayout = styled.div`
+type Props = Styles & {
+  children: React.ReactNode;
+  classNames?: string[];
+};
+
+const PageLayout = ({ children, classNames, overflow }: Props) => {
+  return (
+    <StyledPageLayout className={classNames?.join(' ')} overflow={overflow}>
+      {children}
+    </StyledPageLayout>
+  );
+};
+
+const StyledPageLayout = styled.div<Styles>`
   width: 100%;
   height: calc(94vh - 4.2rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow: ${({ overflow }) => overflow || 'hidden'};
+
+  &.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default PageLayout;
