@@ -46,6 +46,15 @@ const StyledImage = styled(Image)`
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  &.picture {
+    /* height: 500px; */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 2;
+  }
 `;
 
 export default CustomImage;

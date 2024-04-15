@@ -11,12 +11,12 @@ type Styles = {
 };
 
 type Props = Styles & {
-  value: string;
+  children?: React.ReactNode;
   classNames?: string[];
 };
 
 const H5 = ({
-  value,
+  children,
   size,
   weight,
   color,
@@ -31,7 +31,7 @@ const H5 = ({
       padding={padding}
       className={classNames?.join(' ')}
     >
-      {value}
+      {children}
     </StyledH5>
   );
 };
