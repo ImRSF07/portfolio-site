@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import H1 from '../components/Typography/H1';
+import H1 from "../components/Typography/H1";
 
-import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
 
-import ArticleLayout from '../layouts/ArticleLayout';
+import ArticleLayout from "../layouts/ArticleLayout";
 
 export default function AboutPage() {
   return (
@@ -57,17 +57,17 @@ export default function AboutPage() {
           />
         </StyledAbout>
       </ArticleLayout> */}
-      <ArticleLayout color='#000'>
+      <ArticleLayout color="#000">
         <Skills />
       </ArticleLayout>
-      <ArticleLayout color='gray'>
+      <ArticleLayout color="gray">
         <Projects />
       </ArticleLayout>
-      <ArticleLayout color='blue'>
-        <H1 value='Clients' />
+      <ArticleLayout color="blue">
+        <H1 value="Clients" />
       </ArticleLayout>
-      <ArticleLayout color='black'>
-        <H1 value='Contact' />
+      <ArticleLayout color="black">
+        <H1 value="Contact" />
       </ArticleLayout>
     </>
   );
