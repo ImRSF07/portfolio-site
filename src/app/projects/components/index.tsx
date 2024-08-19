@@ -4,27 +4,18 @@ import React from 'react';
 
 import { EmblaOptionsType } from 'embla-carousel';
 
-// import EmblaCarousel from './embla-carousel-1/EmblaCarousel';
-// import '../Projects/embla-carousel-1/styles/carousel.css';
-
 import Header from './embla-carousel-thumbnail/Header';
 import Footer from './embla-carousel-thumbnail/Footer';
 import EmblaCarousel from './embla-carousel-thumbnail/EmblaCarousel';
 
-import '../Projects/embla-carousel-thumbnail/styles/base.css';
-import '../Projects/embla-carousel-thumbnail/styles/sandbox.css';
-import '../Projects/embla-carousel-thumbnail/styles/embla.css';
+import './embla-carousel-thumbnail/styles/base.css';
+import './embla-carousel-thumbnail/styles/sandbox.css';
+import './embla-carousel-thumbnail/styles/embla.css';
 
 const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
 const SLIDE_COUNT = 5;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
-// const newSlides = [
-//   'Job Order System',
-//   'Piece Rate Payroll System',
-//   'HOPLA Careers',
-//   'HOPLA.Online',
-// ];
 const newSlides = [
   { title: 'Job Order System', imagePath: '/hopla-online.png', url: '' },
   {
@@ -52,7 +43,6 @@ const newSlides = [
     imagePath: '/hopla-challenger.png',
     url: 'http://campaign-xi.vercel.app/',
   },
-
 ];
 
 const Projects = () => {
