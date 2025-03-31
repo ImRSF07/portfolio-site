@@ -8,6 +8,8 @@ type Styles = {
   weight?: string;
   color?: string;
   padding?: string;
+  margin?: string;
+  textShadow?: string;
 };
 
 type Props = Styles & {
@@ -21,7 +23,9 @@ const H5 = ({
   weight,
   color,
   padding,
+  margin,
   classNames = [],
+  textShadow,
 }: Props) => {
   return (
     <StyledH5
@@ -29,6 +33,8 @@ const H5 = ({
       weight={weight}
       color={color}
       padding={padding}
+      margin={margin}
+      textShadow={textShadow}
       className={classNames?.join(' ')}
     >
       {children}
@@ -41,6 +47,8 @@ const StyledH5 = styled.h5<Styles>`
   font-weight: ${({ weight }) => weight || 'bold'};
   color: ${({ color }) => color || '#fff'};
   padding: ${({ padding }) => padding || '0'};
+  margin: ${({ margin }) => margin || '0'};
+  text-shadow: ${({ textShadow }) => textShadow || 'none'};
 `;
 
 export default H5;

@@ -1,35 +1,24 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
 
-import Skill from "./Skill";
+import Skill from './Skill';
 
 const Skills = () => {
   return (
-    <SkillsWrapper>
-      <SkillsSection>
-        <Skill text="HTML" percent={10} />
-        <Skill text="CSS" percent={20} />
-        <Skill text="JavaScript" percent={30} />
-        <Skill text="React" percent={40} />
-      </SkillsSection>
-      <SkillsSection>
-        <Skill text="Node" percent={50} />
-        <Skill text="PHP" percent={60} />
-        <Skill text="Wordpress" percent={70} />
-        <Skill text="SQL" percent={80} />
-      </SkillsSection>
-    </SkillsWrapper>
+    <>
+      <Skill
+        companyName='Alsons Aquaculture Corporation'
+        companyUrl='https://www.linkedin.com/company/alsons-aquaculture-corporation/'
+        noOfYears={4}
+        noOfProjects={3}
+      ></Skill>
+      <Skill
+        companyName='HOPLA.Online'
+        companyUrl='https://www.linkedin.com/company/hoplaonline/posts/?feedView=all'
+        noOfYears={2}
+        noOfProjects={3}
+      ></Skill>
+    </>
   );
 };
-
-const SkillsSection = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-const SkillsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export default Skills;

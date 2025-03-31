@@ -2,15 +2,15 @@
 
 import React from 'react';
 
-import Projects from './components';
+import ClientsPage from './components';
 
 import ArticleLayout from '../layouts/ArticleLayout';
 
-export default function ProjectsPage() {
+export default function ClientPage() {
   return (
     <>
       <ArticleLayout>
-        <Projects />
+        <ClientsPage />
       </ArticleLayout>
     </>
   );
