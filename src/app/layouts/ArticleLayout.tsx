@@ -6,10 +6,10 @@ import styled from 'styled-components';
 
 const ArticleLayout = ({
   children,
-  color,
+  color = '#1E2D3D',
 }: {
   children: React.ReactNode;
-  color: string;
+  color?: string;
 }) => {
   return <StyledArticleLayout color={color}>{children}</StyledArticleLayout>;
 };

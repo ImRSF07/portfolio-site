@@ -2,15 +2,15 @@
 
 import React from 'react';
 
-import Skills from './components/Skills';
+import Projects from './components';
 
 import ArticleLayout from '../layouts/ArticleLayout';
 
-export default function AboutPage() {
+export default function ProjectsPage() {
   return (
     <>
       <ArticleLayout>
-        <Skills />
+        <Projects />
       </ArticleLayout>
     </>
   );

@@ -1,2 +1,12 @@
 Figma: https://www.figma.com/file/6H9pi20911AFDlxoZMhhKk/Portfolio-for-Developers-Concept-V.2-(Community)?type=design&node-id=0-1&mode=design&t=hF3jmjkqSOcLoAhT-0
 Example site using the same figma design: https://wiscaksono.com/
+
+v2 Redesign:
+https://i.imgur.com/X7Tefzr.gif
+Basically, main links like /about, /skills, /projects and etc. will each have their own page. Also, Sidebar will be removed
+
+Skills Design Ideas:
+https://designmodo.com/dev-portfolio-tips/
+https://liviucmg.com/
+https://dribbble.com/shots/14072794-Dark-Theme-Card-Set (Not free)
+https://www.toptal.com/designers/ui/dark-ui-design (Article)

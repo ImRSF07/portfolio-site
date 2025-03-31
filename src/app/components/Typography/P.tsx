@@ -10,6 +10,7 @@ type Styles = {
   padding?: string;
   margin?: string;
   display?: string;
+  textShadow?: string;
 };
 
 type Props = Styles & {
@@ -25,6 +26,7 @@ const P = ({
   padding,
   margin,
   display,
+  textShadow,
   classNames = [],
 }: Props) => {
   return (
@@ -35,6 +37,7 @@ const P = ({
       padding={padding}
       margin={margin}
       display={display}
+      textShadow={textShadow}
       className={classNames?.join(' ')}
     >
       {value}
@@ -49,6 +52,7 @@ const StyledP = styled.p<Styles>`
   padding: ${({ padding }) => padding || '0'};
   margin: ${({ margin }) => margin || '0'};
   display: ${({ display }) => display || 'block'};
+  text-shadow: ${({ textShadow }) => textShadow || 'none'};
 `;
 
 export default P;

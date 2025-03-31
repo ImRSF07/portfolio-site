@@ -13,6 +13,7 @@ type Styles = {
   padding?: string;
   margin?: string;
   decoration?: string;
+  textShadow?: string;
 };
 
 type Props = Styles & {
@@ -29,6 +30,7 @@ const CustomLink = ({
   padding,
   margin,
   decoration,
+  textShadow,
   classNames,
   children,
 }: Props) => {
@@ -41,6 +43,7 @@ const CustomLink = ({
       padding={padding}
       margin={margin}
       decoration={decoration}
+      textShadow={textShadow}
       className={classNames?.join(' ')}
     >
       {children}
@@ -55,6 +58,7 @@ const StyledLink = styled(Link)<Styles>`
   padding: ${({ padding }) => padding || '0'};
   margin: ${({ margin }) => margin || '0'};
   text-decoration: ${({ decoration }) => decoration || 'none'};
+  text-shadow: ${({ textShadow }) => textShadow || 'none'};
 
   &:hover {
     text-decoration: underline;
