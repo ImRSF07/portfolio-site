@@ -79,7 +79,7 @@ const StyledNavbar = styled.nav`
     z-index: 1;
 
     &.large {
-      width: 200px;
+      width: 20vh;
     }
 
     &:not(.large):hover {

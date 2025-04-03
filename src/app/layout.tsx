@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import { Fira_Code } from "next/font/google";
+import { Fira_Code } from 'next/font/google';
 import './globals.css';
 
 import MainLayout from './layouts/MainLayout';
 
-import Navbar from './components/Navbar'; 
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 const firaCode = Fira_Code({
-  subsets: ["latin"],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
         <MainLayout>
           <Navbar />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </MainLayout>
       </body>
     </html>

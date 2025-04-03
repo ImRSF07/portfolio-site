@@ -10,6 +10,7 @@ type Styles = {
   padding?: string;
   margin?: string;
   textShadow?: string;
+  display?: string;
 };
 
 type Props = Styles & {
@@ -26,6 +27,7 @@ const H5 = ({
   margin,
   classNames = [],
   textShadow,
+  display,
 }: Props) => {
   return (
     <StyledH5
@@ -35,6 +37,7 @@ const H5 = ({
       padding={padding}
       margin={margin}
       textShadow={textShadow}
+      display={display}
       className={classNames?.join(' ')}
     >
       {children}
@@ -49,6 +52,7 @@ const StyledH5 = styled.h5<Styles>`
   padding: ${({ padding }) => padding || '0'};
   margin: ${({ margin }) => margin || '0'};
   text-shadow: ${({ textShadow }) => textShadow || 'none'};
+  display: ${({ display }) => display || 'block'};
 `;
 
 export default H5;

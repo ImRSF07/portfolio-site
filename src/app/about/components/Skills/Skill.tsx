@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Badges from './components/Badges';
+import Badges from '../Badges';
 
 import P from '@/app/components/Typography/P';
 import StyledLink from '@/app/components/StyledLink';
