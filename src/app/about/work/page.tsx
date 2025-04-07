@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import About from '../../pages/About';
+import Work from '../../pages/About/Work';
 
-export default function AboutPage() {
-  return <About />;
+export default function WorkPage() {
+  return <Work />;
 }

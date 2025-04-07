@@ -1,12 +1,9 @@
 import React from 'react';
 
-import P from '@/app/components/Typography/P';
-
 import styled from 'styled-components';
 
-type CodeBlockTypes = {
-  gap?: string;
-};
+import P from '@/app/components/Typography/P';
+import CodeBlock from '@/app/components/CodeBlock';
 
 const About = () => {
   return (
@@ -88,23 +85,6 @@ const About = () => {
     </ContentWrapper>
   );
 };
-
-const CodeBlock = styled.div<CodeBlockTypes>`
-  display: flex;
-  gap: ${({ gap }) => gap || '0.5rem'};
-  margin-left: 1em;
-
-  &::before {
-    counter-increment: line;
-    content: counter(line);
-    padding: 0 0.5em;
-    color: #888;
-  }
-
-  span.inline {
-    display: flex;
-  }
-`;
 
 const ContentWrapper = styled.div`
   padding: 1rem;
