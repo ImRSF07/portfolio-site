@@ -76,6 +76,17 @@ const Work = () => {
       </CodeBlock>
       <CodeBlock>
         <span className='inline'>
+          <P margin='0 0 0 5.5em' value='type:' color='white'></P>
+          <P
+            margin='0 0 0 0.5em'
+            value="'Full-time'"
+            color='rgb(93, 228, 199)'
+          ></P>
+          <P value=',' color='white'></P>
+        </span>
+      </CodeBlock>
+      <CodeBlock>
+        <span className='inline'>
           <P margin='0 0 0 4em' value='}' color='yellow'></P>
           <P value=',' color='white'></P>
         </span>
@@ -154,7 +165,21 @@ const Work = () => {
         </span>
       </CodeBlock>
       <CodeBlock>
-        <P margin='0 0 0 3.5em' value='},' color='yellow'></P>
+        <span className='inline'>
+          <P margin='0 0 0 5em' value='type:' color='white'></P>
+          <P
+            margin='0 0 0 0.5em'
+            value="'Full-time'"
+            color='rgb(93, 228, 199)'
+          ></P>
+          <P value=',' color='white'></P>
+        </span>
+      </CodeBlock>
+      <CodeBlock>
+        <span className='inline'>
+          <P margin='0 0 0 3.5em' value='}' color='yellow'></P>
+          <P value=',' color='white'></P>
+        </span>
       </CodeBlock>
 
       <CodeBlock>
@@ -197,13 +222,30 @@ const Work = () => {
         </span>
       </CodeBlock>
       <CodeBlock>
-        <P margin='0 0 0 3.5em' value='},' color='yellow'></P>
+        <span className='inline'>
+          <P margin='0 0 0 5em' value='type:' color='white'></P>
+          <P
+            margin='0 0 0 0.5em'
+            value="'Full-time'"
+            color='rgb(93, 228, 199)'
+          ></P>
+          <P value=',' color='white'></P>
+        </span>
+      </CodeBlock>
+      <CodeBlock>
+        <span className='inline'>
+          <P margin='0 0 0 3.5em' value='}' color='yellow'></P>
+          <P value=',' color='white'></P>
+        </span>
       </CodeBlock>
       <CodeBlock>
         <P margin='0 0 0 2.5em' value='],' color='white'></P>
       </CodeBlock>
       <CodeBlock>
-        <P margin='0 0 0 1.5em' value='},' color='red'></P>
+        <span className='inline'>
+          <P margin='0 0 0 1.5em' value='}' color='red'></P>
+          <P value=',' color='white'></P>
+        </span>
       </CodeBlock>
       <CodeBlock>
         <P margin='0 0 0 0' value=']' color='orange'></P>
