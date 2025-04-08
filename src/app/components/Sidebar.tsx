@@ -60,7 +60,7 @@ const Sidebar = () => {
             <StyledLink
               weight='400'
               size='1.125rem'
-              href='http://localhost:3000/work'
+              href='http://localhost:3000/about/skills'
             >
               skills.ts
             </StyledLink>
