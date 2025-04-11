@@ -17,13 +17,13 @@ type Styles = {
 };
 
 type Props = Styles & {
-  href: string;
+  href: string | undefined;
   children: React.ReactNode;
   classNames?: string[];
 };
 
 const CustomLink = ({
-  href,
+  href = '',
   size,
   weight,
   color,

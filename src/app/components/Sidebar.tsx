@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -17,74 +17,149 @@ type ListItemProps = {
   ml?: string;
 };
 
+type ListMappingItem = {
+  name: string;
+  buttonIcon?: ReactNode | string;
+  icon: ReactNode | string;
+  link?: string;
+  children?: ListMappingItem[];
+  displayChildren?: boolean;
+};
+
+const defaultListMappings: ListMappingItem[] = [
+  {
+    name: 'abouts',
+    buttonIcon: 'v',
+    icon: <FaAddressBook color='#fff' />,
+    displayChildren: true,
+    children: [
+      {
+        name: 'about-me.ts',
+        icon: <SiTypescript color='#fff' />,
+        displayChildren: false,
+        link: '/about',
+      },
+      {
+        name: 'work.ts',
+        icon: <SiTypescript color='#fff' />,
+        displayChildren: false,
+        link: '/about/work',
+      },
+      {
+        name: 'skills.ts',
+        icon: <SiTypescript color='#fff' />,
+        displayChildren: false,
+        link: '/about/skills',
+      },
+    ],
+  },
+  {
+    name: 'projects',
+    buttonIcon: 'v',
+    icon: <MdStars color='#fff' />,
+    displayChildren: true,
+    children: [
+      {
+        name: 'index.ts',
+        icon: <SiTypescript color='#fff' />,
+        displayChildren: false,
+        link: '/projects',
+      },
+    ],
+  },
+  {
+    name: 'clients',
+    buttonIcon: 'v',
+    icon: <FaUsers color='#fff' />,
+    displayChildren: true,
+    children: [
+      {
+        name: 'index.ts',
+        icon: <SiTypescript color='#fff' />,
+        displayChildren: false,
+        link: '/clients',
+      },
+    ],
+  },
+  {
+    name: 'contact',
+    buttonIcon: 'v',
+    icon: <MdContactMail color='#fff' />,
+    displayChildren: false,
+  },
+];
+
 const Sidebar = () => {
+  const [listMappings, setListMappings] =
+    useState<ListMappingItem[]>(defaultListMappings);
+
+  const onListItemClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    const headingText = e.currentTarget.querySelector('h5')?.textContent;
+
+    const allListItems = document.querySelectorAll('li');
+    allListItems.forEach((item) => {
+      item.classList.remove('active');
+    });
+
+    // Add active class to the clicked item
+    const clickedItem = e.currentTarget;
+    clickedItem.classList.add('active');
+
+    const updatedMappings = listMappings.map((item) => {
+      const buttonIcon = item.displayChildren ? '>' : 'v';
+      if (item.name === headingText) {
+        return {
+          ...item,
+          displayChildren: !item.displayChildren,
+          buttonIcon: buttonIcon,
+        };
+      }
+      return item;
+    });
+    setListMappings(updatedMappings);
+  };
+
   return (
     <StyledSidebar>
       <RootList>
-        <ListItem data-content='v'>
-          <ListContent>
-            <FaAddressBook color='#fff' />
-            <H5 weight='400'>abouts</H5>
-          </ListContent>
-        </ListItem>
+        {listMappings.map((item, index) => {
+          const { name, buttonIcon, icon, children, displayChildren } = item;
+          return (
+            <>
+              <ListItem
+                data-content={buttonIcon}
+                onClick={onListItemClick}
+                key={index}
+              >
+                <ListContent>
+                  {icon}
+                  <H5 weight='400'>{name}</H5>
+                </ListContent>
+              </ListItem>
 
-        <ListItem data-content='' ml='17px'>
-          <ListContent>
-            <SiTypescript color='#fff' />
-            <StyledLink
-              weight='400'
-              size='1.125rem'
-              href='http://localhost:3000/about'
-            >
-              about-me.ts
-            </StyledLink>
-          </ListContent>
-        </ListItem>
-
-        <ListItem data-content='' ml='17px'>
-          <ListContent>
-            <SiTypescript color='#fff' />
-            <StyledLink
-              weight='400'
-              size='1.125rem'
-              href='http://localhost:3000/about/work'
-            >
-              work.ts
-            </StyledLink>
-          </ListContent>
-        </ListItem>
-
-        <ListItem data-content='' ml='17px'>
-          <ListContent>
-            <SiTypescript color='#fff' />
-            <StyledLink
-              weight='400'
-              size='1.125rem'
-              href='http://localhost:3000/about/skills'
-            >
-              skills.ts
-            </StyledLink>
-          </ListContent>
-        </ListItem>
-
-        <ListItem data-content='>'>
-          <ListContent>
-            <MdStars color='#fff' />
-            <H5 weight='400'>projects</H5>
-          </ListContent>
-        </ListItem>
-        <ListItem data-content='>'>
-          <ListContent>
-            <FaUsers color='#fff' />
-            <H5 weight='400'>clients</H5>
-          </ListContent>
-        </ListItem>
-        <ListItem data-content='>'>
-          <ListContent>
-            <MdContactMail color='#fff' />
-            <H5 weight='400'>contact</H5>
-          </ListContent>
-        </ListItem>
+              {displayChildren &&
+                children &&
+                children.map((child, index) => {
+                  const { name, icon, link } = child;
+                  return (
+                    <ListItem
+                      data-content=''
+                      ml='1.5rem'
+                      key={index}
+                      onClick={onListItemClick}
+                    >
+                      <ListContent>
+                        {icon}
+                        <StyledLink weight='400' size='1.125rem' href={link}>
+                          {name}
+                        </StyledLink>
+                      </ListContent>
+                    </ListItem>
+                  );
+                })}
+            </>
+          );
+        })}
       </RootList>
     </StyledSidebar>
   );
@@ -117,6 +192,12 @@ const ListItem = styled.li<ListItemProps>`
     color: #fff;
     margin-right: 8px;
     font-weight: bold;
+  }
+
+  &:hover,
+  &.active {
+    box-shadow: -3.5rem 0 rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;
 
