@@ -7,6 +7,8 @@ import MainLayout from './layouts/MainLayout';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import { NavItemProvider } from './context/NavItemProvider';
+
 const firaCode = Fira_Code({
   subsets: ['latin'],
 });
@@ -28,8 +30,11 @@ export default function RootLayout({
     <html lang='en'>
       <body className={firaCode.className}>
         <MainLayout>
-          <Navbar />
-          {children}
+          <NavItemProvider>
+            <Navbar />
+            {children}
+          </NavItemProvider>
+
           {/* <Footer /> */}
         </MainLayout>
       </body>

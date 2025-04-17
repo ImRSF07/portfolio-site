@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, Fragment } from 'react';
 
 import styled from 'styled-components';
 
@@ -6,18 +6,21 @@ import { FaAddressBook } from 'react-icons/fa6';
 import { MdStars } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa6';
 import { MdContactMail } from 'react-icons/md';
-
 import { SiTypescript } from 'react-icons/si';
 
 import StyledLink from './StyledLink';
-
 import H5 from './Typography/H5';
+
+import { useNavItemContext } from '../context/NavItemProvider';
+
+import { generateRandomId } from '../utils/util';
 
 type ListItemProps = {
   ml?: string;
 };
 
 type ListMappingItem = {
+  id: string;
   name: string;
   buttonIcon?: ReactNode | string;
   icon: ReactNode | string;
@@ -26,26 +29,30 @@ type ListMappingItem = {
   displayChildren?: boolean;
 };
 
-const defaultListMappings: ListMappingItem[] = [
+export const defaultListMappings: ListMappingItem[] = [
   {
+    id: generateRandomId(),
     name: 'abouts',
     buttonIcon: 'v',
     icon: <FaAddressBook color='#fff' />,
     displayChildren: true,
     children: [
       {
+        id: generateRandomId(),
         name: 'about-me.ts',
         icon: <SiTypescript color='#fff' />,
         displayChildren: false,
         link: '/about',
       },
       {
+        id: generateRandomId(),
         name: 'work.ts',
         icon: <SiTypescript color='#fff' />,
         displayChildren: false,
         link: '/about/work',
       },
       {
+        id: generateRandomId(),
         name: 'skills.ts',
         icon: <SiTypescript color='#fff' />,
         displayChildren: false,
@@ -54,12 +61,14 @@ const defaultListMappings: ListMappingItem[] = [
     ],
   },
   {
+    id: generateRandomId(),
     name: 'projects',
     buttonIcon: 'v',
     icon: <MdStars color='#fff' />,
     displayChildren: true,
     children: [
       {
+        id: generateRandomId(),
         name: 'index.ts',
         icon: <SiTypescript color='#fff' />,
         displayChildren: false,
@@ -68,12 +77,14 @@ const defaultListMappings: ListMappingItem[] = [
     ],
   },
   {
+    id: generateRandomId(),
     name: 'clients',
     buttonIcon: 'v',
     icon: <FaUsers color='#fff' />,
     displayChildren: true,
     children: [
       {
+        id: generateRandomId(),
         name: 'index.ts',
         icon: <SiTypescript color='#fff' />,
         displayChildren: false,
@@ -82,6 +93,7 @@ const defaultListMappings: ListMappingItem[] = [
     ],
   },
   {
+    id: generateRandomId(),
     name: 'contact',
     buttonIcon: 'v',
     icon: <MdContactMail color='#fff' />,
@@ -93,8 +105,15 @@ const Sidebar = () => {
   const [listMappings, setListMappings] =
     useState<ListMappingItem[]>(defaultListMappings);
 
-  const onListItemClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const { setNavItems, navItems } = useNavItemContext();
+
+  const handleListItemClick = (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    item?: ListMappingItem | undefined
+  ) => {
     const headingText = e.currentTarget.querySelector('h5')?.textContent;
+    const linkText: string =
+      e.currentTarget.querySelector('a')?.textContent || '';
 
     const allListItems = document.querySelectorAll('li');
     allListItems.forEach((item) => {
@@ -117,6 +136,36 @@ const Sidebar = () => {
       return item;
     });
     setListMappings(updatedMappings);
+
+    const navItemIds = navItems.map((item) => item.id);
+
+    if (item && typeof item === 'object') {
+      if (!navItemIds.includes(item.id)) {
+        const updatedNavItems = navItems.map((navItem) => ({
+          ...navItem,
+          selected: false,
+        }));
+
+        setNavItems([
+          ...updatedNavItems,
+          {
+            id: item.id,
+            selected: true,
+            name: linkText,
+            url: item.link || '/',
+            icon: item.icon,
+          },
+        ]);
+      } else {
+        const updatedNavItems = navItems.map((navItem) => {
+          if (navItem.id === item.id) {
+            return { ...navItem, selected: true };
+          }
+          return { ...navItem, selected: false };
+        });
+        setNavItems(updatedNavItems);
+      }
+    }
   };
 
   return (
@@ -125,11 +174,10 @@ const Sidebar = () => {
         {listMappings.map((item, index) => {
           const { name, buttonIcon, icon, children, displayChildren } = item;
           return (
-            <>
+            <Fragment key={index}>
               <ListItem
                 data-content={buttonIcon}
-                onClick={onListItemClick}
-                key={index}
+                onClick={(e) => handleListItemClick(e)}
               >
                 <ListContent>
                   {icon}
@@ -146,7 +194,7 @@ const Sidebar = () => {
                       data-content=''
                       ml='1.5rem'
                       key={index}
-                      onClick={onListItemClick}
+                      onClick={(e) => handleListItemClick(e, child)}
                     >
                       <ListContent>
                         {icon}
@@ -157,7 +205,7 @@ const Sidebar = () => {
                     </ListItem>
                   );
                 })}
-            </>
+            </Fragment>
           );
         })}
       </RootList>
