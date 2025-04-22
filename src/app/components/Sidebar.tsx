@@ -63,18 +63,9 @@ export const defaultListMappings: ListMappingItem[] = [
   {
     id: generateRandomId(),
     name: 'projects',
-    buttonIcon: 'v',
     icon: <MdStars color='#fff' />,
-    displayChildren: true,
-    children: [
-      {
-        id: generateRandomId(),
-        name: 'index.ts',
-        icon: <SiTypescript color='#fff' />,
-        displayChildren: false,
-        link: '/projects',
-      },
-    ],
+    displayChildren: false,
+    link: '/projects',
   },
   {
     id: generateRandomId(),
@@ -109,7 +100,7 @@ const Sidebar = () => {
 
   const handleListItemClick = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    item?: ListMappingItem | undefined
+    item?: ListMappingItem
   ) => {
     const headingText = e.currentTarget.querySelector('h5')?.textContent;
     const linkText: string =
@@ -139,7 +130,7 @@ const Sidebar = () => {
 
     const navItemIds = navItems.map((item) => item.id);
 
-    if (item && typeof item === 'object') {
+    if (item && !item.hasOwnProperty('children')) {
       if (!navItemIds.includes(item.id)) {
         const updatedNavItems = navItems.map((navItem) => ({
           ...navItem,
@@ -172,16 +163,23 @@ const Sidebar = () => {
     <StyledSidebar>
       <RootList>
         {listMappings.map((item, index) => {
-          const { name, buttonIcon, icon, children, displayChildren } = item;
+          const { name, buttonIcon, icon, children, displayChildren, link } =
+            item;
           return (
             <Fragment key={index}>
               <ListItem
                 data-content={buttonIcon}
-                onClick={(e) => handleListItemClick(e)}
+                onClick={(e) => handleListItemClick(e, item)}
               >
                 <ListContent>
                   {icon}
-                  <H5 weight='400'>{name}</H5>
+                  {item.displayChildren ? (
+                    <H5 weight='400'>{name}</H5>
+                  ) : (
+                    <StyledLink weight='400' size='1.125rem' href={link}>
+                      {name}
+                    </StyledLink>
+                  )}
                 </ListContent>
               </ListItem>
 
