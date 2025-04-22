@@ -2,16 +2,8 @@
 
 import React from 'react';
 
-import Skills from './components/Skills';
-
-import ArticleLayout from '../layouts/ArticleLayout';
+import About from '../pages/About/AboutMe';
 
 export default function AboutPage() {
-  return (
-    <>
-      <ArticleLayout>
-        <Skills />
-      </ArticleLayout>
-    </>
-  );
+  return <About />;
 }
